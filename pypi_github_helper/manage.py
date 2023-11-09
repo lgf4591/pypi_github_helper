@@ -8,11 +8,11 @@ def dev():
 
 def pylint():
     # cmd = "pylint $(git ls-files '*.py')"
-    cmd = "pylint **/**/*.py --disable=missing-docstring"
+    cmd = "pylint **/**/*.py --disable=missing-docstring --disable=line-too-long --disable=consider-using-with"
     subprocess.run(cmd, shell=True, check=True)
 
 
 def fix():
     # cmd = "autopep8 --in-place --aggressive --aggressive **/**/*.py"
-    cmd = "yapf -ir main.py ./pypi_template ./src ./tests"
+    cmd = "yapf -ir main.py ./pypi_github_helper ./src ./tests"
     subprocess.run(cmd, shell=True, check=True)
